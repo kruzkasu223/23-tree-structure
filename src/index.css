@@ -1,8 +1,8 @@
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: #cbd5e1;
+  background-color: #0f172a;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -22,4 +22,60 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+}
+
+.App > h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.tree {
+  margin: auto;
+  margin-top: 2rem;
+  max-width: 600px;
+  text-align: left;
+}
+
+.leaf {
+  padding-left: 1rem;
+  margin: 0.5rem;
+  position: relative;
+}
+
+.leaf_title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.leaf_title.no_child {
+  font-size: 1.25rem;
+  cursor: default;
+}
+
+.leaf[open] .leaf .leaf_title::before {
+  content: "";
+  position: absolute;
+  top: 0rem;
+  left: -1.6rem;
+  width: 2px;
+  height: 1.25em;
+  background-color: #cbd5e1;
+  pointer-events: none;
+}
+
+.leaf[open] .leaf .leaf_title::after {
+  content: "";
+  position: absolute;
+  top: 0.6em;
+  left: -1.6rem;
+  width: 1.25em;
+  height: 2px;
+  background-color: #cbd5e1;
+  pointer-events: none;
+}
+
+.leaf[open] .leaf .leaf_title[data-last="true"]::before {
+  height: 0.6em;
 }
